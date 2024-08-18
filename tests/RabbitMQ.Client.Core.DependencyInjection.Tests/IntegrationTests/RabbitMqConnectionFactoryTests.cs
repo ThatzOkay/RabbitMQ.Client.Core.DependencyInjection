@@ -96,7 +96,7 @@ namespace RabbitMQ.Client.Core.DependencyInjection.Tests.IntegrationTests
         {
             var connectionOptions = new RabbitMqServiceOptions
             {
-                HostName = "rabbitmq",
+                HostName = "localhost",
                 InitialConnectionRetries = 1,
                 InitialConnectionRetryTimeoutMilliseconds = 20
             };
@@ -108,7 +108,7 @@ namespace RabbitMQ.Client.Core.DependencyInjection.Tests.IntegrationTests
         {
             var connectionOptions = new RabbitMqServiceOptions
             {
-                HostName = "rabbitmq",
+                HostName = "localhost",
                 ClientProvidedName = "connectionName",
                 InitialConnectionRetries = 3,
                 InitialConnectionRetryTimeoutMilliseconds = 20
@@ -125,7 +125,8 @@ namespace RabbitMQ.Client.Core.DependencyInjection.Tests.IntegrationTests
                 {
                     new()
                     {
-                        HostName = "rabbitmq"
+                        Port = 5672,
+                        HostName = "localhost"
                     }
                 },
                 InitialConnectionRetries = 3,
@@ -139,7 +140,7 @@ namespace RabbitMQ.Client.Core.DependencyInjection.Tests.IntegrationTests
         {
             var connectionOptions = new RabbitMqServiceOptions
             {
-                HostNames = new List<string> { "rabbitmq" },
+                HostNames = new List<string> { "localhost" },
                 InitialConnectionRetries = 3,
                 InitialConnectionRetryTimeoutMilliseconds = 20
             };
@@ -151,7 +152,7 @@ namespace RabbitMQ.Client.Core.DependencyInjection.Tests.IntegrationTests
         {
             var connectionOptions = new RabbitMqServiceOptions
             {
-                HostNames = new List<string> { "rabbitmq" },
+                HostNames = new List<string> { "localhost" },
                 ClientProvidedName = "connectionName",
                 InitialConnectionRetries = 3,
                 InitialConnectionRetryTimeoutMilliseconds = 20

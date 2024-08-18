@@ -64,15 +64,15 @@ namespace RabbitMQ.Client.Core.DependencyInjection.Services
 
         private IModel CreateChannel(IConnection connection)
         {
-            connection.CallbackException += HandleConnectionCallbackException;
+            connection.CallbackException += HandleConnectionCallbackException!;
             if (connection is IAutorecoveringConnection recoveringConnection)
             {
-                recoveringConnection.ConnectionRecoveryError += HandleConnectionRecoveryError;
+                recoveringConnection.ConnectionRecoveryError += HandleConnectionRecoveryError!;
             }
             
             var channel = connection.CreateModel();
-            channel.CallbackException += HandleChannelCallbackException;
-            channel.BasicRecoverOk += HandleChannelBasicRecoverOk;
+            channel.CallbackException += HandleChannelCallbackException!;
+            channel.BasicRecoverOk += HandleChannelBasicRecoverOk!;
             return channel;
         }
 

@@ -95,7 +95,7 @@ namespace RabbitMQ.Client.Core.DependencyInjection.Tests.IntegrationTests
         private static RabbitMqServiceOptions GetClientOptions() =>
             new()
             {
-                HostName = "rabbitmq",
+                HostName = "localhost",
                 Port = 5672,
                 UserName = "guest",
                 Password = "guest",

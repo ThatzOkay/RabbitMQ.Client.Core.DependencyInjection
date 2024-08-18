@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using RabbitMQ.Client.Core.DependencyInjection.Exceptions;
 using RabbitMQ.Client.Core.DependencyInjection.InternalExtensions.Validation;
 using RabbitMQ.Client.Core.DependencyInjection.Models;
@@ -65,7 +65,7 @@ namespace RabbitMQ.Client.Core.DependencyInjection.Services
         {
             EnsureProducingChannelIsNotNull();
             ValidateArguments(exchangeName, routingKey);
-            var json = JsonConvert.SerializeObject(@object);
+            var json = JsonSerializer.Serialize(@object);
             var bytes = Encoding.UTF8.GetBytes(json);
             var properties = CreateJsonProperties();
             Send(bytes, properties, exchangeName, routingKey);
